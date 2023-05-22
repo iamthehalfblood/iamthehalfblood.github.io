@@ -1,10 +1,116 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    </head>
-  <body>
-    Hello World!!!!
+<head>
+    <title>Sorry</title>
+    <style>
+        .dialog-container {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        .dialog-box {
+            position: relative;
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            margin: 100px auto;
+            border-radius: 5px;
+        }
+
+        .dialog-buttons {
+            text-align: center;
+        }
+
+        .dialog-buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+        }
+    </style>
     <script>
-      window.confirm("Hello ??");
+        var noClickCount = 0;
+        var count=1;
+        function showDialog() {
+            var dialogContainer = document.getElementById("dialog-container");
+            dialogContainer.style.display = "block";
+        }
+
+        function hideDialog() {
+            var dialogContainer = document.getElementById("dialog-container");
+            dialogContainer.style.display = "none";
+        }
+
+        function handleYes() {
+           
+            var phoneNumber = "+916388987961"; // Replace with your predefined phone number
+            var message = "I Love You Jaan, I Love you soooo much. Mai Maan gyi hu"; // Replace with your pre-written message
+            var encodedMessage = encodeURIComponent(message);
+            var url = "https://wa.me/" + phoneNumber + "?text=" + encodedMessage;
+
+            window.open(url);
+        }
+
+        function handleNo() {
+            
+        
+
+           var pa = document.querySelectorAll("p");
+           pa[0].innerText="Mann jaao n";
+           noClickCount++;
+           if(noClickCount==2)
+           {
+            pa[0].innerText=" Please Mann jaao n";
+           }
+           if(noClickCount==3)
+           {
+            pa[0].innerText=" Please Please Mann jaao n";
+           }
+           if(noClickCount==4)
+           {
+            pa[0].innerText=" Please Please Please Mann jaao n";
+           }
+           if(noClickCount==5)
+           {
+            pa[0].innerText=" Request";
+           }
+           if(noClickCount==6)
+           {
+            pa[0].innerText=" Dekho jab tak nhi manogi tab tak ye chlta rhega";
+           }
+           if(noClickCount==7)
+           {
+            pa[0].innerText="Mann jaao n";
+           }
+           if(noClickCount>=8)
+           {
+            
+            pa[0].innerText="Request no." + count;
+            count++;
+           }
+
+
+
+        }
     </script>
-  </body>
+</head>
+<body>
+    <h1>I Love you jaan</h1>
+
+    
+
+    <div id="dialog-container" class="dialog-container">
+        <div class="dialog-box">
+            <p>Baat nhi krogi mujhse ??</p>
+            <div class="dialog-buttons">
+                <button onclick="handleYes()">Yes</button>
+                <button onclick="handleNo()">No</button>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
